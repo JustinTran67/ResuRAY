@@ -2,7 +2,7 @@
 
 > AI-powered resume analysis and optimization platform that helps job seekers maximize their chances of landing interviews
 
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://resuray-production.up.railway.app)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://resuray.vercel.app/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Django](https://img.shields.io/badge/Django-5.2.8-092E20?logo=django)](https://www.djangoproject.com/)
 [![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react)](https://reactjs.org/)
@@ -12,7 +12,7 @@
 
 ResuRAY is a full-stack web application that leverages OpenAI's GPT-4o-mini to provide intelligent resume analysis and job matching. Upload your resume and a job description, and receive comprehensive feedback including a match score, skill gap analysis, personalized suggestions, and even a custom cover letter—all powered by cutting-edge AI.
 
-**Live Application:** [https://resuray-production.up.railway.app](https://resuray-production.up.railway.app)
+**Live Application:** [https://resuray.vercel.app/](https://resuray.vercel.app/)
 
 ## ✨ Key Features
 
