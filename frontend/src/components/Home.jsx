@@ -48,20 +48,20 @@ export default function Home() {
 
     return (
         <div className="text-center">
-            <div className="mt-20 mb-10">
+            <div className="mt-20 mb-10 opacity-0 animate-fadeUp">
                 <h1 className="text-[64px] font-bold">ResuRAY</h1>
             </div>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <h1 className="text-xl font-semibold">Resume PDF:</h1>
+            <div className="">
+                <form className="" onSubmit={handleSubmit}>
+                    <h1 className="text-xl font-semibold opacity-0 animate-fadeUp [animation-delay:0.5s]">Resume PDF:</h1>
                     <br />
-                    <input className="mb-10" type="file" accept="application/pdf" onChange={(e) => setResume(e.target.files[0])}/>
+                    <input className="mb-10 opacity-0 animate-fadeUp [animation-delay:0.5s]" type="file" accept="application/pdf" onChange={(e) => setResume(e.target.files[0])}/>
                     <br />
-                    <h1 className="text-xl font-semibold">Job Description:</h1>
+                    <h1 className="text-xl font-semibold opacity-0 animate-fadeUp [animation-delay:0.5s]">Job Description:</h1>
                     <br />
-                    <textarea className="mb-10 w-[500px] h-[300px] bg-gray-100 rounded-xl" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)}/>
+                    <textarea className="mb-10 w-[700px] h-[300px] bg-gray-100 rounded-xl opacity-0 animate-fadeUp [animation-delay:0.5s]" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)}/>
                     <br />
-                    <button className="mb-20 bg-blue-500 hover:bg-blue-600 px-4 py-2 text-xl text-white rounded-xl font-semibold" type="submit" disabled={loading}>
+                    <button className="mb-20 bg-blue-500 hover:bg-blue-600 transition duration-200 ease-in-out px-4 py-2 text-xl text-white rounded-xl font-semibold opacity-0 animate-fadeUp [animation-delay:1s]" type="submit" disabled={loading}>
                         {loading ? 'Analyzing...' : 'Submit'}
                     </button>
                 </form>

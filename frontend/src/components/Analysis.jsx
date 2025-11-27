@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
+// hooks
+import useInView from "../hooks/useInView"
 
 export default function Analysis({ resume, score, missing, strengths, weaknesses, suggestions, cover_letter }) {
     const [resumePreview, setResumePreview] = useState();
@@ -18,8 +20,8 @@ export default function Analysis({ resume, score, missing, strengths, weaknesses
 
     return (
         <div className="px-20">
-            <h1 className="mt-20 mb-20 text-[64px] font-bold">Analysis</h1>
-            <div className="flex grid-cols-2 gap-4 mb-20">
+            <h1 className="mt-20 mb-20 text-[64px] font-bold opacity-0 animate-fadeUp">Analysis</h1>
+            <div className="flex grid-cols-2 gap-4 mb-20 opacity-0 animate-fadeUp [animation-delay:0.5s]">
                 <div className="">
                     <iframe className="rounded-xl shadow-lg" src={resumePreview} width="700" height="900"></iframe>
                 </div>
@@ -68,9 +70,26 @@ export default function Analysis({ resume, score, missing, strengths, weaknesses
                     </div>
                 </div>
             </div>
-            <div>
-                <button className="mb-20 px-4 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600 font-semibold" onClick={handleNav}>Rate Another Resume</button>
-            </div>
+            <FadeSection>
+                <button className="mb-20 px-4 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition duration-200 ease-in-out font-semibold" onClick={handleNav}>Rate Another Resume</button>
+            </FadeSection>
         </div>
    )
+}
+
+// On scroll fade in component animation
+function FadeSection({ children, delay = "0s" }) {
+    const [ref, inView] = useInView();
+  
+    return (
+      <div
+        ref={ref}
+        style={{ animationDelay: delay }}
+        className={`opacity-0 ${
+          inView ? "animate-fadeUp" : ""
+        }`}
+      >
+        {children}
+      </div>
+    );
 }
