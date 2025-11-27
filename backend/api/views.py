@@ -42,7 +42,18 @@ class AnalyzeResumeReview(GenericAPIView):
         Job description: 
         {job_description}
 
-        Provide the following as JSON (do NOT include extra text): 
+        1. Give a match score (0–100).
+        2. List missing skills.
+        3. List strengths.
+        4. List weaknesses.
+        5. Suggest better resume bullet points.
+        6. Create a personalized cover letter.
+
+        Return ONLY JSON.
+        Do NOT wrap the JSON in markdown like ```json.
+        Do NOT include explanations.
+
+        Provide the following in this exact format (do NOT include extra text): 
         {{
             "score": number 0-100, 
             "missing_skills": [...], 
@@ -60,6 +71,7 @@ class AnalyzeResumeReview(GenericAPIView):
             )
 
             response_text = completion.output_text
+            print("RAW LLM RESPONSE:", response_text)
             data = json.loads(response_text)
 
         except Exception as e:
