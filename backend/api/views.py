@@ -15,7 +15,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 class AnalyzeResumeReview(GenericAPIView):
     serializer_class = ResumeAnalysisSerializer
     parser_classes = (MultiPartParser, FormParser)
-    renderer_classes = (JSONRenderer, BrowsableAPIRenderer)
+    renderer_classes = (JSONRenderer,)
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
