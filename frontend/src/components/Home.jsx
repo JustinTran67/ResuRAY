@@ -61,7 +61,7 @@ export default function Home() {
                     <br />
                     <textarea className="mb-10 w-[500px] h-[300px] bg-gray-100 rounded-xl" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)}/>
                     <br />
-                    <button className="bg-gray-100 px-2 text-xl font-semibold" type="submit" disabled={loading}>
+                    <button className="mb-20 bg-blue-500 hover:bg-blue-600 px-4 py-2 text-xl text-white rounded-xl font-semibold" type="submit" disabled={loading}>
                         {loading ? 'Analyzing...' : 'Submit'}
                     </button>
                 </form>
