@@ -8,10 +8,15 @@ from PyPDF2 import PdfReader
 from openai import OpenAI
 import os, json
 
+# disable csrf
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
 from .serializers import ResumeAnalysisSerializer
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+@method_decorator(csrf_exempt, name='dispatch')
 class AnalyzeResumeReview(GenericAPIView):
     serializer_class = ResumeAnalysisSerializer
     parser_classes = (MultiPartParser, FormParser)
