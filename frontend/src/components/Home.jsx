@@ -23,7 +23,7 @@ export default function Home() {
 
         try {
             setLoading(true);
-            const API_BASE = import.meta.env.REACT_APP_API_BASE_URL || 'http://localhost:8000'; // exclusive to vite
+            const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'; // exclusive to vite all variables must start with VITE_
             const response = await fetch(`${API_BASE}/analyze/`, {
                 method: 'POST',
                 body: formData,
