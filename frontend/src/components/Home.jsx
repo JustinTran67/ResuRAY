@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+// assets
+import ResuRAYLogo from '../assets/ResuRAYLogo(1).png'
 
 export default function Home() {
     const [resume, setResume] = useState(null);
@@ -47,22 +49,23 @@ export default function Home() {
     }, [result, navigate, resume]);
 
     return (
-        <div className="text-center">
-            <div className="mt-20 mb-10 opacity-0 animate-fadeUp">
-                <h1 className="text-[64px] font-bold">ResuRAY</h1>
+        <div className="flex flex-col items-center text-center mb-60">
+            <div className="flex mt-20 mb-20">
+                <h1 className="text-[64px] font-bold opacity-0 animate-fadeUp">Resu</h1>
+                <h1 className="text-[64px] font-bold text-primary opacity-0 animate-growIn [animation-delay:0.2s]">RAY</h1>
             </div>
-            <div className="">
+            <div className="flex flex-col items-center">
                 <form className="" onSubmit={handleSubmit}>
                     <h1 className="text-xl font-semibold opacity-0 animate-fadeUp [animation-delay:0.5s]">Resume PDF:</h1>
                     <br />
-                    <input className="mb-10 opacity-0 animate-fadeUp [animation-delay:0.5s]" type="file" accept="application/pdf" onChange={(e) => setResume(e.target.files[0])}/>
+                    <input className="mb-10 opacity-0 animate-fadeUp [animation-delay:0.5s] bg-primary hover:bg-secondary transition duration-200 ease-in-out rounded-xl text-white" type="file" accept="application/pdf" onChange={(e) => setResume(e.target.files[0])}/>
                     <br />
                     <h1 className="text-xl font-semibold opacity-0 animate-fadeUp [animation-delay:0.5s]">Job Description:</h1>
                     <br />
-                    <textarea className="mb-10 w-[700px] h-[300px] bg-gray-100 rounded-xl opacity-0 animate-fadeUp [animation-delay:0.5s]" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)}/>
+                    <textarea className="p-4 mb-10 w-[700px] h-[300px] bg-gray-100 rounded-xl opacity-0 animate-fadeUp [animation-delay:0.5s] shadow-lg" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)}/>
                     <br />
-                    <button className="mb-20 bg-blue-500 hover:bg-blue-600 transition duration-200 ease-in-out px-4 py-2 text-xl text-white rounded-xl font-semibold opacity-0 animate-fadeUp [animation-delay:1s]" type="submit" disabled={loading}>
-                        {loading ? 'Analyzing...' : 'Submit'}
+                    <button className="mx-auto flex items-center justify-center gap-2 bg-primary hover:bg-secondary transition duration-200 ease-in-out px-4 py-2 text-xl text-white rounded-2xl font-semibold opacity-0 animate-fadeUp [animation-delay:1s]" type="submit" disabled={loading}>
+                        {loading ? 'Analyzing...' : 'Analyze'}<img className={loading? "w-10 h-10 animate-scalePulse" : "w-10 h-10"} src={ResuRAYLogo} alt="resuray logo"></img>
                     </button>
                 </form>
             </div>
